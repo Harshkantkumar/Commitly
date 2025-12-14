@@ -1,4 +1,3 @@
-```javascript
 import { useState } from 'react';
 import { Github, ArrowRight, Loader2 } from 'lucide-react';
 import axios from 'axios';
@@ -53,28 +52,6 @@ const Home = () => {
                 </p>
             </header>
 
-                            value={repoUrl}
-                            onChange={(e) => setRepoUrl(e.target.value)}
-                            style={{ paddingLeft: '40px' }}
-                        />
-                    </div>
-                    <button type="submit" className="btn-primary" disabled={loading} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        {loading ? <Loader2 className="animate-spin" size={20} /> : <>Analyze <ArrowRight size={20} /></>}
-                    </button>
-                </form>
-                {error && <p style={{ color: 'var(--danger)', marginTop: '1rem' }}>{error}</p>}
-            </div>
-
-            {/* Results Section (Step 11 placeholder) */}
-            {result && (
-                <div className="results-container">
-                    <div className="card" style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{result.score} / 100</h2>
-                        <p style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>{result.level}</p>
-                    </div>
-
-                    <div className="card" style={{ marginBottom: '2rem' }}>
-                        <h3>Mentor Summary</h3>
             {!isAuthenticated ? (
                 <div style={{ textAlign: 'center', marginTop: '5rem' }}>
                     <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Please log in to analyze your GitHub repositories.</p>
