@@ -23,7 +23,8 @@ const Home = () => {
 
         try {
             // Step 12: Integration
-            const response = await axios.post('/api/analyze', { repoUrl });
+            const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
+            const response = await axios.post(`${apiBaseUrl}/api/analyze`, { repoUrl });
             setResult(response.data);
         } catch (err) {
             setError(err.response?.data?.error || 'Failed to analyze repository. Please check the URL.');
