@@ -27,7 +27,14 @@ const Home = () => {
             const response = await axios.post(`${apiBaseUrl}/api/analyze`, { repoUrl });
             setResult(response.data);
         } catch (err) {
-            setError(err.response?.data?.error || 'Failed to analyze repository. Please check the URL.');
+            console.error('Analysis Error:', err);
+            const errorResponse = err.response?.data?.error;
+            // Handle if error is an object { code, message } or just a string
+            const errorMessage = (typeof errorResponse === 'object' && errorResponse !== null)
+                ? (errorResponse.message || JSON.stringify(errorResponse))
+                : (errorResponse || 'Failed to analyze repository. Please check the URL.');
+
+            setError(errorMessage);
         } finally {
             setLoading(false);
         }
