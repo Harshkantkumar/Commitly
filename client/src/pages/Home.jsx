@@ -23,7 +23,9 @@ const Home = () => {
 
         try {
             // Step 12: Integration
-            const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
+            // Fallback to Render URL if VITE_API_BASE_URL is not set
+            const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://commitly-u6e0.onrender.com';
+            console.log('Using Backend URL:', apiBaseUrl);
             const response = await axios.post(`${apiBaseUrl}/api/analyze`, { repoUrl });
             setResult(response.data);
         } catch (err) {
