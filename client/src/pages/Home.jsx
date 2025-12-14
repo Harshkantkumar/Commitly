@@ -75,29 +75,6 @@ const Home = () => {
 
                     <div className="card" style={{ marginBottom: '2rem' }}>
                         <h3>Mentor Summary</h3>
-                        <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>{result.summary}</p>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-                        <div className="card">
-                            <h3>Breakdown</h3>
-                            <ul style={{ listStyle: 'none', marginTop: '1rem' }}>
-                                {result.breakdown && result.breakdown.map((item, idx) => (
-                                    <li key={idx} style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="card">
-                            <h3>Personalized Roadmap</h3>
-                            <ul style={{ listStyle: 'none', marginTop: '1rem' }}>
-                                {result.roadmap && result.roadmap.map((step, idx) => (
-                                    <li key={idx} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-                                        <span style={{ background: 'var(--accent-primary)', width: '24px', height: '24px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem' }}>{idx + 1}</span>
-                                        <span>{step}</span>
-                                    </li>
             {!isAuthenticated ? (
                 <div style={{ textAlign: 'center', marginTop: '5rem' }}>
                     <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Please log in to analyze your GitHub repositories.</p>
@@ -171,4 +148,3 @@ const Home = () => {
 };
 
 export default Home;
-```
